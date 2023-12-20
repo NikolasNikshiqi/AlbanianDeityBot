@@ -99,6 +99,7 @@ public class Bet implements ICommand{
             e.printStackTrace();
         }
     }
+
     private void scheduleCardClearTask(String playerId, long delay, TimeUnit timeUnit) {
         ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
         Runnable task = () -> {
