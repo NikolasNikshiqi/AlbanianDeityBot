@@ -29,7 +29,7 @@ public class Footy implements ICommand{
 
     @Override
     public String getDescription() {
-        return "Displays lists of matches to be played today or matches of certain teams";
+        return "Displays lists of matches to be played today or matches of selected team";
     }
 
     @Override
