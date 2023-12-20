@@ -78,6 +78,10 @@ public class Footy implements ICommand{
                     Team awayTeam = objectMapper.treeToValue(node.get("awayTeam"), Team.class);
                     match.setAwayTeam(awayTeam);
 
+                    if (!node.get("score").get("winner").isNull() && node.get("score").get("winner") != null) {
+                        match.setHomeScore(node.get("score").get("fullTime").get("home").asInt());
+                        match.setAwayScore(node.get("score").get("fullTime").get("away").asInt());
+                    }
                     matches.add(match);
                 }
             }
@@ -87,10 +91,11 @@ public class Footy implements ICommand{
                 embedBuilder.addField(
                         String.format(""),
                         String.format(
-                                "%s  %s   %s\n",
+                                "%s %s %s %s\n",
                                 match.getFormattedDate(),
                                 match.getStatus(),
-                                match.getOpponents()
+                                match.getOpponents(),
+                                match.getScore()
                         ),false
                 );
 
