@@ -48,7 +48,7 @@ public class Play implements ICommand{
         if (!selfVoiceState.inAudioChannel()) {
             audioManager.openAudioConnection(memberChannel);
         }
-
+        
         //channel.sendMessageFormat("Connecting to `\uD83D\uDD0A %s`", memberChannel.getName()).queue();
 
         //Play

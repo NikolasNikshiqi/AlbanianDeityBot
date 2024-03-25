@@ -102,21 +102,17 @@ public class Footy implements ICommand{
                     matches.add(match);
                 }
             }
-            EmbedBuilder embedBuilder = new EmbedBuilder().setTitle("Matches");
 
             for (Match match : matches) {
-                embedBuilder.addField(
-                        String.format(""),
-                        String.format(
-                                "%s %s %s %s\n",
-                                match.getFormattedDate(),
-                                match.getStatus(),
-                                match.getOpponents(),
-                                match.getScore()
-                        ),false
-                );
+                channel.sendMessage(String.format(
+                        "%s %s %s %s\n",
+                        match.getFormattedDate(),
+                        match.getStatus(),
+                        match.getOpponents(),
+                        match.getScore()
+                )).queue();
             }
-            channel.sendMessage("").setEmbeds(embedBuilder.build()).queue();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
